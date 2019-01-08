@@ -1,0 +1,145 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "The AWS CloudFormation template for this Serverless application",
+  "Resources": {
+    "ServerlessDeploymentBucket": {
+      "Type": "AWS::S3::Bucket"
+    },
+    "DispatchLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/guide-command-dispatcher-prod-dispatch"
+      }
+    },
+    "IamRoleLambdaExecution": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": {
+              "Fn::Join": [
+                "-",
+                [
+                  "prod",
+                  "guide-command-dispatcher",
+                  "lambda"
+                ]
+              ]
+            },
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/guide-command-dispatcher-prod-dispatch:*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/guide-command-dispatcher-prod-dispatch:*:*"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "Path": "/",
+        "RoleName": {
+          "Fn::Join": [
+            "-",
+            [
+              "guide-command-dispatcher",
+              "prod",
+              "ap-northeast-1",
+              "lambdaRole"
+            ]
+          ]
+        }
+      }
+    },
+    "DispatchLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/guide-command-dispatcher/prod/1546911267998-2019-01-08T01:34:27.998Z/guide-command-dispatcher.zip"
+        },
+        "FunctionName": "guide-command-dispatcher-prod-dispatch",
+        "Handler": "handler.dispatch",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "python3.7",
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "accountid": "CI0003",
+            "username": "imai",
+            "password": 123
+          }
+        }
+      },
+      "DependsOn": [
+        "DispatchLogGroup",
+        "IamRoleLambdaExecution"
+      ]
+    },
+    "DispatchLambdaVersionbmnpbcqJeGkS9ZSx86yCkWEw261Tb64zyHmhnQFQ1I": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "DispatchLambdaFunction"
+        },
+        "CodeSha256": "AC1SBDnXrA1oxk2JyUgOM+omw2EWLnKq9oH1AWXfaGs="
+      }
+    }
+  },
+  "Outputs": {
+    "ServerlessDeploymentBucketName": {
+      "Value": {
+        "Ref": "ServerlessDeploymentBucket"
+      }
+    },
+    "DispatchLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "DispatchLambdaVersionbmnpbcqJeGkS9ZSx86yCkWEw261Tb64zyHmhnQFQ1I"
+      }
+    }
+  }
+}

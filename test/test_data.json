@@ -1,0 +1,35 @@
+{
+    "Records": [{
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "2c794c4336b46e8e6822b2f222fa454325c6ee63",
+                "sequenceNumber": "49591558206326425632104379226428232470603334457992675330",
+                "data": "eyJhY2NvdW50SWQiOiJDSTAwMDMiLCJhcHBsaWNhdGlvbiI6InJvYm90IiwiZW50aXR5IjoiNjRkYTBiMWEtNTk5NC00YWFlLWI1Y2MtODU1NmZmZTg5OGRhIiwicm9ib3RJZCI6IjY0ZGEwYjFhLTU5OTQtNGFhZS1iNWNjLTg1NTZmZmU4OThkYSIsImRpcmVjdGlvbiI6InVwbGluayIsInRpbWVzdGFtcCI6MTU0NjYwNzgzMDcyNSwidGltZXN0YW1wX3N0cmluZyI6IjIwMTktMDEtMDRUMTM6MTc6MTAuNzI1WiIsIm1lc3NhZ2VUeXBlIjoicm9zX21lc3NhZ2UiLCJwYXlsb2FkIjp7ImhlYWRlciI6eyJzdGFtcCI6eyJzZWNzIjozNjcyNDksIm5zZWNzIjo3MDcwMDAwMDB9LCJmcmFtZV9pZCI6Im1hcCIsInNlcSI6MTJ9LCJwb3NlIjp7InBvc2UiOnsicG9zaXRpb24iOnsieSI6MS4xODc3NzU4MzY2NDY4MjM4LCJ4IjotMy4yMTMwNTU0MDU2NjkzMTEyLCJ6IjowfSwib3JpZW50YXRpb24iOnsieSI6MCwieCI6MCwieiI6MC44ODUzNjQwMDQ2OTQxMDMsInciOjAuNDY0ODk4NDYxMTYzMzE3MDd9fSwiY292YXJpYW5jZSI6WzAuMjM5MDI4MjAyMzc5MzE0NDQsLTAuMDEyNDg0NjMzMTcxMjI4MDU0LDAsMCwwLDAsLTAuMDEyNDg0NjMzMTcxMjI4MDU0LDAuMDQ3NDIzNTA0OTY1MzQ5OTcsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMCwwLDAsMC4xMjIzMzU0MjY3Nzg4OTY3Nl19fSwibGVuZ3RoIjo0MTksInJvc1RvcGljIjoiYW1jbF9wb3NlIn0=",
+                "approximateArrivalTimestamp": 1546607834.565
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49591558206326425632104379226428232470603334457992675330",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::731050371684:role/guide-command-dispatcher-prod-ap-northeast-1-lambdaRole",
+            "awsRegion": "ap-northeast-1",
+            "eventSourceARN": "arn:aws:kinesis:ap-northeast-1:731050371684:stream/uas-imai"
+        },
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "f0ced10101d8bde478fa6b616c50054739b55b6b",
+                "sequenceNumber": "49591558206326425632104379226431859248062178345516793858",
+                "data": "eyJhY2NvdW50SWQiOiJDSTAwMDMiLCJhcHBsaWNhdGlvbiI6InJvYm90IiwiZW50aXR5IjoiMDYwMzI5OGQtYjFkMy00ZTcwLWJmMTktMjFmNmU4YTg5NTM2Iiwicm9ib3RJZCI6IjA2MDMyOThkLWIxZDMtNGU3MC1iZjE5LTIxZjZlOGE4OTUzNiIsImRpcmVjdGlvbiI6InVwbGluayIsInRpbWVzdGFtcCI6MTU0NjYwNzgzMjc2MiwidGltZXN0YW1wX3N0cmluZyI6IjIwMTktMDEtMDRUMTM6MTc6MTIuNzYyWiIsIm1lc3NhZ2VUeXBlIjoicGFydGlhbF9zdGF0ZV91cGRhdGUiLCJwYXlsb2FkIjp7ImxvY2FsX3N0YXRlIjp7ImJhdHRlcnkiOjk3fX0sImxlbmd0aCI6MzB9",
+                "approximateArrivalTimestamp": 1546607834.568
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49591558206326425632104379226431859248062178345516793858",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::731050371684:role/guide-command-dispatcher-prod-ap-northeast-1-lambdaRole",
+            "awsRegion": "ap-northeast-1",
+            "eventSourceARN": "arn:aws:kinesis:ap-northeast-1:731050371684:stream/uas-imai"
+        }
+    ]
+}
